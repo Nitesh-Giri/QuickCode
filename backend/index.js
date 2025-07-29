@@ -44,6 +44,9 @@ app.use("/api/v1/ai", aiRoute);
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/workspace", workspaceRoute);
 
+app.get("/", (req, res) => {
+    res.send("Welcome to QuickCode AI");
+});
 
 connnectDB();
 
