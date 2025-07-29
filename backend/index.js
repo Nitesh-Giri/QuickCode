@@ -37,7 +37,8 @@ const port = process.env.PORT || 5000;
 app.use(cors({
     origin: ["http://localhost:8080",
         "http://localhost:5173",
-        "https://quickcode-ng.netlify.app/"],
+        "https://quickcode-ng.netlify.app/",
+        "https://quickkcode.vercel.app/"],
     credentials: true,
 }));
 
