@@ -18,22 +18,28 @@ const port = process.env.PORT || 5000;
 
 
 //cors
-const allowedOrigins = ["http://localhost:8080", "http://localhost:5173", 
-    "https://quickcode-ng.netlify.app/"];
-const corsOptions = {
-    origin: (origin, callback) => {
-        // Allow requests with no origin (like mobile apps, curl requests)
-        if (!origin) return callback(null, true);
-        if (allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    credentials: true // Allow credentials
-};
+// const allowedOrigins = ["http://localhost:8080", "http://localhost:5173", 
+//     "https://quickcode-ng.netlify.app/"];
+// const corsOptions = {
+//     origin: (origin, callback) => {
+//         // Allow requests with no origin (like mobile apps, curl requests)
+//         if (!origin) return callback(null, true);
+//         if (allowedOrigins.includes(origin)) {
+//             callback(null, true);
+//         } else {
+//             callback(new Error('Not allowed by CORS'));
+//         }
+//     },
+//     credentials: true // Allow credentials
+// };
 
-app.use(cors(corsOptions));
+
+app.use(cors({
+    origin: ["http://localhost:8080",
+        "http://localhost:5173",
+        "https://quickcode-ng.netlify.app/"],
+    credentials: true,
+}));
 
 //middlewares
 app.use(express.urlencoded({ extended: true, limit: '16mb' }));
